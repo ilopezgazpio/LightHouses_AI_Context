@@ -21,7 +21,7 @@ class RandBot(interface.Bot):
             if lighthouses[(cx, cy)]["owner"] == self.player_num:
                 if random.randrange(100) < 60:
                     possible_connections = []
-                    for dest in self.lighthouses:
+                    for dest in lighthouses:
                         # No conectar con sigo mismo
                         # No conectar si no tenemos la clave
                         # No conectar si ya existe la conexión

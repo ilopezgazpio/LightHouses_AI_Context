@@ -49,7 +49,7 @@ class Bot(object):
 
     def log(self, message, *args):
         """Mostrar mensaje de registro por stderr"""
-        print >>sys.stderr, "[%s] %s" % (self.NAME, (message % args))
+        print("[%s] %s" % (self.NAME, (message % args)), file=sys.stderr)
 
     # ==========================================================================
     # Jugadas posibles
