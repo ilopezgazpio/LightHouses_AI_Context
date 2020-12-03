@@ -122,4 +122,4 @@ class GameView(object):
                         (x1 * CELL + CELL//2, y1 * CELL + CELL//2), color)
         self.screen.blit(self.arena, (0,0))
         pygame.display.flip()
-        self.fps_controller.tick(1)
+        self.fps_controller.tick(60)
