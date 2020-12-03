@@ -18,6 +18,8 @@ class GameView(object):
     def __init__(self, game):
         self.game = game
         pygame.init()
+        # Frame controller (FPS)
+        self.fps_controller = pygame.time.Clock()
         size = width, height = 640, 480
         self.screen = pygame.display.set_mode(size)
         self.scale = 1
@@ -120,3 +122,4 @@ class GameView(object):
                         (x1 * CELL + CELL//2, y1 * CELL + CELL//2), color)
         self.screen.blit(self.arena, (0,0))
         pygame.display.flip()
+        self.fps_controller.tick(1)
