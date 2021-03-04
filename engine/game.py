@@ -3,9 +3,15 @@
 import sys, time
 import engine, botplayer
 import view
+import argparse
 
-cfg_file = sys.argv[1]
-bots = sys.argv[2:]
+parser = argparse.ArgumentParser(description='LightHouses AI Contest')
+parser.add_argument('-map', '--map', type=str, required=True, default="maps/grid.txt", help='Map file to be used')
+parser.add_argument('-bots', '--bots', type=str, nargs='+', required=True, help='Bots to play with :) ')
+args = parser.parse_args()
+
+cfg_file = args.map
+bots = args.bots
 DEBUG = False
 CONTINUE_ON_ERROR = False
 

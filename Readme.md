@@ -18,14 +18,16 @@ python3 -m pip install -U pygame --user
 
 ## Launch the game with one bot
 ```
-python engine/game.py maps/grid.txt 'python examples/RandBot/randbot.py'
+python engine/game.py \
+--map 'maps/grid.txt' \
+--bots 'python examples/RandBot/randbot.py'
 ```
 
 ## Launch the game with N bots
 ```
-python engine/game.py \ 
-maps/grid.txt \
-'python examples/RandBot/randbot.py' \
+python engine/game.py \
+--map 'maps/grid.txt' \
+--bots 'python examples/RandBot/randbot.py' \
 'python examples/RandBot/randbot.py' \
 'python examples/RandBot/randbot.py' \
 'python examples/RandBot/randbot.py' \
@@ -169,7 +171,7 @@ Agent receives the following information at each round:
 }
 ```
 
-- Conquer / refill lighouse
+- Conquer / refill lighthouse
 ```
 {
 	"command": "attack",

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-import json, subprocess, time, select, sys, os, fcntl
+import json, subprocess, time, select, sys, os
+# import fcntl
 import engine
 
 class CommError(Exception):
@@ -13,8 +14,8 @@ class BotPlayer(object):
     def __init__(self, game, playernum, cmdline, debug=False):
         self.alive = True
         self.p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
-        flag = fcntl.fcntl(self.p.stdout.fileno(), fcntl.F_GETFD)
-        fcntl.fcntl(self.p.stdout.fileno(), fcntl.F_SETFL, flag | os.O_NONBLOCK)
+#        flag F= fcntl.fcntl(self.p.stdout.fileno(), fcntl.F_GETFD)
+#        fcntl.fcntl(self.p.stdout.fileno(), fcntl.F_SETFL, flag | os.O_NONBLOCK)
         self.game = game
         self.player = game.players[playernum]
         self.debug = debug
