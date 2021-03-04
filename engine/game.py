@@ -40,10 +40,13 @@ while True:
                 actor.close()
         view.update(args.fps)
     game.post_round()
-    s = "########### ROUND %d SCORE: " % round
+
+    s = "ROUND {} SCORE: \n".format(round)
     for i in range(len(bots)):
-        s += "P%d: %d " % (i, game.players[i].score)
-    print(s)
+        s += "{} (Robot-{}) : {} points \n".format( game.players[i].name , i, game.players[i].score)
+    print(s, end='')
+    sys.stdout.flush()
+
     round += 1
 
 view.update()
