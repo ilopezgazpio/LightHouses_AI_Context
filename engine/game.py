@@ -6,6 +6,7 @@ import view
 import argparse
 
 parser = argparse.ArgumentParser(description='LightHouses AI Contest')
+parser.add_argument('-fps', '--fps', type=int, required=False, default=20, help='FPS value to use to display game')
 parser.add_argument('-map', '--map', type=str, required=True, default="maps/grid.txt", help='Map file to be used')
 parser.add_argument('-bots', '--bots', type=str, nargs='+', required=True, help='Bots to play with :) ')
 args = parser.parse_args()
@@ -27,7 +28,7 @@ view = view.GameView(game)
 round = 0
 while True:
     game.pre_round()
-    view.update()
+    view.update(args.fps)
     for actor in actors:
         try:
             actor.turn()
@@ -37,7 +38,7 @@ while True:
             else:
                 print("CommError: " + str(e))
                 actor.close()
-        view.update()
+        view.update(args.fps)
     game.post_round()
     s = "########### ROUND %d SCORE: " % round
     for i in range(len(bots)):

@@ -108,7 +108,7 @@ class GameView(object):
                 color = PLAYERC[lh.owner]
             self._diamond((px + CELL//2, py + CELL//2), 4, color, 0)
 
-    def update(self):
+    def update(self, fps_value):
         self.arena.fill((0, 0, 0))
         for cy in range(self.game.island.h):
             for cx in range(self.game.island.w):
@@ -122,4 +122,4 @@ class GameView(object):
                         (x1 * CELL + CELL//2, y1 * CELL + CELL//2), color)
         self.screen.blit(self.arena, (0,0))
         pygame.display.flip()
-        self.fps_controller.tick(60)
+        self.fps_controller.tick(fps_value)
