@@ -3,6 +3,8 @@ import pygame, sys, time, math
 import cv2
 from google.colab.patches import cv2_imshow
 from google.colab import output
+import PIL 
+from matplotlib.pyplot import imshow
 
 
 CELL = 15
@@ -24,7 +26,7 @@ class GameView(object):
         pygame.init()
         # Frame controller (FPS)
         self.fps_controller = pygame.time.Clock()
-        size = width, height = 640, 480
+        size = width, height =600, 400
         self.screen = pygame.display.set_mode(size)
         self.scale = 1
         self.fw = self.game.island.w * CELL * self.scale
@@ -82,7 +84,6 @@ class GameView(object):
         px = cx * CELL
         c = int(self.game.island.energy[cx, cy] / 100.0 * 25)
         bg = tuple(map(int,(25+c*0.8, 25+c*0.8, 25+c)))
-
         for vertices, fill in self.game.tris.items():
             if (cx, cy) in fill:
                 owner = self.game.lighthouses[vertices[0]].owner
@@ -128,12 +129,15 @@ class GameView(object):
         pygame.display.flip()
         self.fps_controller.tick(fps_value)
 
+        pygame.image.save(window, "screen.jpeg")
+      
         #convert image so it can be displayed in OpenCV
-        colab_view = pygame.surfarray.array3d(self.screen)
+        #colab_view = pygame.surfarray.array3d(self.screen)
         #  convert from (width, height, channel) to (height, width, channel)
-        colab_view = colab_view.transpose([1, 0, 2])
+        #colab_view = colab_view.transpose([1, 0, 2])
         #  convert from rgb to bgr
-        img_bgr = cv2.cvtColor(colab_view, cv2.COLOR_RGB2BGR)
+        #img_bgr = cv2.cvtColor(colab_view, cv2.COLOR_RGB2BGR)
         #Display image, clear cell
-        output.clear()
-        cv2_imshow(img_bgr)
+        #cv2_imshow(img_bgr)
+        #img_bgr
+        #output.clear()

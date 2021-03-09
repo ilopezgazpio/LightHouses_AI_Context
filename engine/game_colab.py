@@ -4,6 +4,15 @@ import sys, time
 import engine, botplayer
 import view_colab as view
 import argparse
+from google.colab.patches import cv2_imshow
+from google.colab import output
+import PIL 
+import cv2
+from matplotlib.pyplot import imshow
+from IPython.display import Image
+from IPython.display import clear_output 
+
+
 
 parser = argparse.ArgumentParser(description='LightHouses AI Contest')
 parser.add_argument('-fps', '--fps', type=int, required=False, default=20, help='FPS value to use to display game')
@@ -40,7 +49,10 @@ while True:
                 actor.close()
         view.update(args.fps)
     game.post_round()
-
+    
+    clear_output()
+    img = cv2.imread("screen.jpeg")
+    cv2_imshow(img)
     s = "ROUND {} SCORE: \n".format(round)
     for i in range(len(bots)):
         s += "{} (Robot-{}) : {} points \n".format( game.players[i].name , i, game.players[i].score)
