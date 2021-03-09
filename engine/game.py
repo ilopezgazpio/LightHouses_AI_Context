@@ -7,8 +7,8 @@ import argparse
 
 parser = argparse.ArgumentParser(description='LightHouses AI Contest')
 parser.add_argument('-fps', '--fps', type=int, required=False, default=20, help='FPS value to use to display game')
-parser.add_argument('-map', '--map', type=str, required=True, default="maps/grid.txt", help='Map file to be used')
-parser.add_argument('-bots', '--bots', type=str, nargs='+', required=True, help='Bots to play with :) ')
+parser.add_argument('-map', '--map', type=str, required=False, default="maps/grid.txt", help='Map file to be used')
+parser.add_argument('-bots', '--bots', type=str, nargs='+', required=False, default = ['python examples/RandBot/randbot.py'], help='Bots to play with :) ')
 args = parser.parse_args()
 
 cfg_file = args.map
@@ -44,7 +44,7 @@ while True:
     s = "ROUND {} SCORE: \n".format(round)
     for i in range(len(bots)):
         s += "{} (Robot-{}) : {} points \n".format( game.players[i].name , i, game.players[i].score)
-    print(s, end='')
+    print(s)
     sys.stdout.flush()
 
     round += 1
