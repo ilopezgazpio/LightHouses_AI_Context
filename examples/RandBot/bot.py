@@ -23,24 +23,24 @@ class Bot(object):
 
     def play(self, state):
         """Jugar: llamado cada turno.
-        Debe devolver una acción (jugada).
+        Debe devolver una accion (jugada).
 
         state: estado actual del juego.
         """
         return self.nop()
 
     def success(self):
-        """Éxito: llamado cuando la jugada previa es válida."""
+        """Exito: llamado cuando la jugada previa es valida."""
         pass
 
     def error(self, message, last_move):
-        """Error: llamado cuando la jugada previa no es válida."""
+        """Error: llamado cuando la jugada previa no es valida."""
         self.log("Recibido error: %s", message)
         self.log("Jugada previa: %r", last_move)
 
     # ==========================================================================
     # Utilidades
-    # No es necesario sobreescribir estos métodos.
+    # No es necesario sobreescribir estos metodos.
     # ==========================================================================
 
     def log(self, message, *args):
@@ -49,7 +49,7 @@ class Bot(object):
 
     # ==========================================================================
     # Jugadas posibles
-    # No es necesario sobreescribir estos métodos.
+    # No es necesario sobreescribir estos metodos.
     # ==========================================================================
 
     def nop(self):
@@ -73,7 +73,7 @@ class Bot(object):
     def attack(self, energy):
         """Atacar a un faro
 
-        energy: energía (entero positivo)
+        energy: energia (entero positivo)
         """
         return {
             "command": "attack",
