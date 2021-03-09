@@ -10,7 +10,7 @@ class Bot(object):
 
     # ==========================================================================
     # Comportamiento del bot
-    # Métodos a implementar / sobreescribir (opcionalmente)
+    # Metodos a implementar / sobreescribir (opcionalmente)
     # ==========================================================================
 
     def __init__(self, init_state):
