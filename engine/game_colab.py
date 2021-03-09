@@ -2,7 +2,7 @@
 
 import sys, time
 import engine, botplayer
-import view_colab
+import view_colab as view
 import argparse
 
 parser = argparse.ArgumentParser(description='LightHouses AI Contest')
