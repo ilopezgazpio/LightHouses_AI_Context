@@ -129,7 +129,7 @@ class GameView(object):
         pygame.display.flip()
         self.fps_controller.tick(fps_value)
 
-        pygame.image.save(window, "screen.jpeg")
+        pygame.image.save(self.screen, "screen.jpeg")
       
         #convert image so it can be displayed in OpenCV
         #colab_view = pygame.surfarray.array3d(self.screen)
